@@ -1,0 +1,112 @@
+/* App Window */
+@define-color bg_color #2c2c2e; /* MacOS Dark Mode Base Color */
+@define-color window_bg @bg_color;
+@define-color window_border_color rgba(0,0,0, 0.5); /* Slight window border */
+@define-color prefs_background rgba(44,44,46, 0.8); /* Prefs background in line with macOS */
+
+/* Input */
+@define-color selected_bg_color #3a3a3c; /* Mid-gray for selected background */
+@define-color selected_fg_color #ffffff; /* White text for selected */
+@define-color input_color #ffffff; /* White input text */
+@define-color caret_color @input_color; /* White caret */
+
+/* Result items */
+@define-color item_name rgba(255,255,255, 0.8); /* Slight transparency on names */
+@define-color item_text rgba(235,235,245, 0.6); /* Subtle gray for item text */
+@define-color item_box_selected @selected_bg_color; /* Mid-gray for selected item box */
+@define-color item_text_selected @selected_fg_color; /* White text for selected item */
+@define-color item_name_selected rgba(255,255,255, 1.0); /* Full white when selected */
+@define-color item_shortcut_color rgba(255,255,255, 0.5); /* Lighter for shortcuts */
+@define-color item_shortcut_shadow rgba(0,0,0, 0.25); /* Subtle shadow for shortcuts */
+@define-color item_shortcut_color_sel #ffffff; /* White for selected shortcuts */
+@define-color item_shortcut_shadow_sel rgba(0,0,0, 0.5); /* Slightly darker shadow when selected */
+
+/* Styling for app window */
+.app {
+    background-color: @window_bg;
+    border: 1px solid @window_border_color;
+    border-radius: 12px; /* MacOS uses rounded corners */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5); /* Soft shadow around the window */
+    margin: 0;
+}
+
+/* Input field styling */
+.input {
+    color: @input_color;
+    padding: 8px 16px; /* More padding for a macOS-like input field */
+    font-size: 2rem; /* macOS Spotlight uses a slightly larger font */
+}
+
+/* Result items */
+.item-box {
+    /* border-radius: 8px; Slightly rounded corners */
+    /* padding: 8px 12px; */
+}
+
+/* Selected text in input */
+.input *:selected,
+.input *:focus,
+*:selected:focus {
+    background-color: @selected_bg_color;
+    color: @selected_fg_color;
+}
+
+/* Result item text and name */
+.item-text {
+    color: @item_text;
+    font-size: 1rem; /* macOS Spotlight has smaller text for item description */
+}
+
+.item-name {
+    color: @item_name;
+    font-size: 1.25rem; /* Larger text for item name */
+}
+
+/* Selected item box styling */
+.selected.item-box {
+    background-color: @item_box_selected;
+}
+.selected.item-box .item-text {
+    color: @item_text_selected;
+}
+.selected.item-box .item-name {
+    color: @item_name_selected;
+}
+.item-shortcut {
+    color: @item_shortcut_color;
+    text-shadow: 1px 1px 2px @item_shortcut_shadow;
+}
+.selected.item-box .item-shortcut {
+    color: @item_shortcut_color_sel;
+    text-shadow: 1px 1px 2px @item_shortcut_shadow_sel;
+}
+
+/* Preferences button styling */
+.prefs-btn {
+    opacity: 0.8;
+    background-color: @prefs_background;
+}
+.prefs-btn:hover {
+    background-color: @selected_bg_color;
+}
+.prefs-btn * {
+    box-shadow: none;
+}
+
+/* Window shadow adjustment */
+.no-window-shadow {
+    margin: -10px;
+}
+
+/* Result Box styling */
+.result-box {
+    margin: 8px 16px;
+    background-color: transparent;
+    padding: 0;
+    border-radius: 8px; /* Rounded corners */
+}
+
+.item-frame {
+    border-image-slice: 1;
+    border-image-source: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(65, 65, 65, 1) 50%, rgba(255, 255, 255, 0) 100%);
+}
